@@ -7,7 +7,11 @@ public class User {
 
     public User(String login, String email) {
         this.login = login;
-        this.email = email;
+        if (email.contains("@") && email.contains(".")) {
+            this.email = email;
+        } else {
+            throw new RuntimeException("Введен некорректный e-mail!");
+        }
         if (login.equals(email)) {
             throw new RuntimeException("Логин и e-mail не должны совпадать!");
         }
@@ -27,11 +31,7 @@ public class User {
     }
 
     public String getEmail() {
-        if (email.contains("@") && email.contains(".")) {
-            return this.email = email;
-        } else {
-            throw new RuntimeException("Введен некорректный e-mail!");
-        }
+        return this.email;
     }
 
     public void setEmail(String email) {

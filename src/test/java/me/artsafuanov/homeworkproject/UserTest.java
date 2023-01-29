@@ -1,4 +1,5 @@
 package me.artsafuanov.homeworkproject;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -24,6 +25,7 @@ public class UserTest {
 
         assertNotNull(user);
     }
+
     @Test
     public void testUserLoginAndEmailEquals() {
         final String login = "login@mail.com";
@@ -44,8 +46,8 @@ public class UserTest {
         User user = new User(login, email);
 
         String userEmail = user.getEmail();
-        if (userEmail.contains("@") && userEmail.contains(".")){
-            assertSame(userEmail, user.getEmail());
-        }
+
+        assertTrue(userEmail.contains("@"));
+        assertTrue(userEmail.contains("."));
     }
 }
